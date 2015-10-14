@@ -1,5 +1,5 @@
 PyYAML
 requests
-coverage
+coverage>=4.0.1
 six
 sh
