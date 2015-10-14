@@ -4,7 +4,7 @@ from unittest import TestCase
 from coverage.plugin import FileReporter
 from coverage.misc import NotPython
 from coveralls.control import coveralls
-from coveralls.reporter import CoverallsReporter
+from coveralls.report import CoverallsReporter
 from httpretty import HTTPretty, httprettified
 from coveralls import api, repository, control, wear
 import os
