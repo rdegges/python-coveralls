@@ -1,8 +1,7 @@
 # coding=utf-8
 import json
 from unittest import TestCase
-from coverage.codeunit import CodeUnit
-from coverage.files import FileLocator
+from coverage.plugin import FileReporter
 from coverage.misc import NotPython
 from coveralls.control import coveralls
 from coveralls.report import CoverallsReporter
@@ -154,7 +153,7 @@ class NotAFileTestCase(TestCase):
         coverage.load()
         self.reporter = CoverallsReporter(coverage, coverage.config)
         self.reporter.find_code_units(None)
-        self.reporter.code_units.append(CodeUnit('NotAFile.py', FileLocator()))
+        self.reporter.code_units.append(FileReporter('NotAFile.py'))
 
     def test_report_raises(self):
         self.assertRaises(IOError, self.reporter.report, Arguments.base_dir)
@@ -169,7 +168,7 @@ class NotAPythonTestCase(TestCase):
         coverage.load()
         self.reporter = CoverallsReporter(coverage, coverage.config)
         self.reporter.find_code_units(None)
-        self.reporter.code_units.append(CodeUnit('LICENSE', FileLocator()))
+        self.reporter.code_units.append(FileReporter('LICENSE'))
 
     def test_report_raises(self):
         self.assertRaises(NotPython, self.reporter.report, Arguments.base_dir)
