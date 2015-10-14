@@ -1,8 +1,8 @@
-from coverage.control import coverage
+from coverage.control import Coverage
 from coveralls.report import CoverallsReporter
 
 
-class coveralls(coverage):
+class coveralls(Coverage):
     def coveralls(self, base_dir, ignore_errors=False, merge_file=None):
         reporter = CoverallsReporter(self, self.config)
         reporter.find_code_units(None)
