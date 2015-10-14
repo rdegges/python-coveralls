@@ -1,4 +1,5 @@
 *.py[cod]
+*.eggs
 venv*
 
 # C extensions
